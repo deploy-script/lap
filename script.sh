@@ -160,7 +160,7 @@ change_php_ini() {
 
     sed -i 's/max_file_uploads\s*=.*/max_file_uploads = 5/g' /etc/php/$PHP_VERSION/apache2/php.ini
 
-    sed -i "s/.*upload_tmp_dir.*/upload_tmp_dir = \/tmp\/php-uploads/" /etc/php/$PHP_VERSION/apache2/php.ini
+    #sed -i "s/.*upload_tmp_dir.*/upload_tmp_dir = \/tmp\/php-uploads/" /etc/php/$PHP_VERSION/apache2/php.ini
 }
 
 start_install(){
