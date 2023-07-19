@@ -152,7 +152,7 @@ install_php() {
         service apache2 restart
     fi
 
-    # install PHP[7.2/8.1]
+    # install PHP[8.1]
     if [ "$PHP_VERSION" = "8.1" ]; then
         #
         echo "Installing PHP$PHP_VERSION"
