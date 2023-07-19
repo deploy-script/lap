@@ -78,6 +78,11 @@ install_php() {
         PHP_VERSION="7.4"
     fi
 
+    # is PHP8.1
+    if [ "$VERSION_ID" = "22.04" ] || [ "$VERSION_ID" = "22.10" ]; then
+        PHP_VERSION="8.1"
+    fi
+
     #
 
     # install PHP5
@@ -115,8 +120,8 @@ install_php() {
         service apache2 restart
     fi
 
-    # install PHP[7.2]
-    if [ "$PHP_VERSION" = "7.2" ] || [ "$PHP_VERSION" = "7.4" ]; then
+    # install PHP[7.2/8.1]
+    if [ "$PHP_VERSION" = "7.2" ] || [ "$PHP_VERSION" = "7.4" || [ "$PHP_VERSION" = "8.1" ]; then
         #
         echo "Installing PHP$PHP_VERSION"
         apt -yqq install php$PHP_VERSION php$PHP_VERSION-cli
