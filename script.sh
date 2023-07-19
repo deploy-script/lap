@@ -121,7 +121,7 @@ install_php() {
     fi
 
     # install PHP[7.2/8.1]
-    if [ "$PHP_VERSION" = "7.2" ] || [ "$PHP_VERSION" = "7.4" || [ "$PHP_VERSION" = "8.1" ]; then
+    if [ "$PHP_VERSION" = "7.2" ]; then
         #
         echo "Installing PHP$PHP_VERSION"
         apt -yqq install php$PHP_VERSION php$PHP_VERSION-cli
@@ -146,6 +146,22 @@ install_php() {
         apt -yqq install libapache2-mod-php
 
         #
+        change_php_ini
+
+        #
+        service apache2 restart
+    fi
+
+    # install PHP[7.2/8.1]
+    if [ "$PHP_VERSION" = "8.1" ]; then
+        #
+        echo "Installing PHP$PHP_VERSION"
+        apt -yqq install php$PHP_VERSION php$PHP_VERSION-cli
+        apt -yqq install php$PHP_VERSION-{mbstring,curl,gd,json,xml,mysql,sqlite3,opcache,zip}
+        #
+        apt -yqq install libapache2-mod-php$PHP_VERSION
+
+	#
         change_php_ini
 
         #
